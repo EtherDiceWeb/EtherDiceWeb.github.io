@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <title>Ether Dice</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Ether Dice">
+    <meta name="keywords" content="bet, multi, bestmultiplier, contract, smartcontract, dice2win, eosbet, mmm3eth, mmm, easy invest, quick investment, smart contract, investment, broadcast, ethereum, earnings on the Internet, passive income, investors, investment fund, income, finance , freebies, simple earnings, how to make money on the Internet, smart contract, cryptocurrency, bounty, bitcoin, money, pandemica, eth333, 333eth, gorgona, easy money, investment fund, financial pyramid">
+    <meta property="og:title" content="Ether Dice"/>
+    <meta property="og:description" content="Ether Dice - decentralized betting on blockchain with the possibility to double your deposit"/>
+    <meta property="og:image" content="../assets/img/preview.png"/>
+
+    <link rel="apple-touch-icon" sizes="152x152" href="../assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon-16x16.png">
+    <link rel="manifest" href="../assets/img/site.webmanifest">
+
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+
+    <link rel="stylesheet" href="../assets/css/styles.css">
+
+</head>
+<body>
+<div class="alert alert-warning alert-dismissible fade hide" role="alert">
+    <div></div>
+    <button aria-label="Close" class="close" type="button"><span aria-hidden="true">×</span></button>
+</div>
+<nav class="navbar sticky-top navbar-dark">
+
+    <div class="d-flex justify-content-between flex-row navbar-wrapper">
+        <div class="d-flex justify-content-between flex-row"><a class="navbar-brand" href="#"><span
+                class="navbar-brand-span"><img src="../assets/img/logo.png"></span></a>
+            <button class="btn btn-wallet btn-link navbar-link d-none d-md-block d-lg-block" data-target="#fairnessModal"
+                    data-toggle="modal" type="button">My wallet
+            </button>
+            <button class="btn btn-link navbar-link d-none d-md-block d-lg-block" data-target="#communityModal"
+                    data-toggle="modal" type="button">Social
+            </button>
+        </div>
+        <div class="d-flex justify-content-between flex-row">
+            <!----><!---->
+            <button data-lang="en" class="btn btn-lang btn-link navbar-link lang-toggler d-block justify-content-right" style="padding: 0;"
+                    type="button">
+                <img alt="English" class="lang active-lang w-75 float-right" src="../assets/img/united-states.png">
+            </button>
+            <!---->
+            <button data-lang="ru" class="btn btn-lang btn-link navbar-link lang-toggler d-block justify-content-right" style="padding: 0;"
+                    type="button">
+                <img alt="Russian" class="lang no-active-lang w-75 float-right" src="../assets/img/russia.png">
+            </button>
+            <!---->
+            <!--<button class="btn btn-link navbar-link lang-toggler d-block justify-content-right" style="padding: 0;" type="button">-->
+            <!--<img alt="Japanese" class="w-50 float-right" src="../assets/img/flag-jp.png"></button> &nbsp;&nbsp;&nbsp;-->
+            <button class="btn btn-link navbar-link d-none d-md-block d-lg-block" data-target="#htpModal"
+                    data-toggle="modal" type="button">How to play?
+            </button><!---->
+            <button class="btn-referrals btn btn-link navbar-link d-none d-md-block d-lg-block" data-target="#referralModal"
+                    data-toggle="modal" type="button">FAQ
+            </button>
+        </div>
+        <button aria-expanded="false" aria-haspopup="true"
+                class="btn btn-link dropdown-toggler navbar-link d-block d-md-none d-lg-none d-xl-none"
+                data-toggle="dropdown"><span class="navbar-toggler-icon"></span></button>
+        <div class="dropdown-menu dropdown-menu-right">
+            <button class="btn-wallet dropdown-item" data-target="#fairnessModal" data-toggle="modal" type="button">My wallet</button>
+            <button class="dropdown-item" data-target="#communityModal" data-toggle="modal" type="button">Social</button>
+            <button class="btn-referrals dropdown-item" data-target="#referralModal" data-toggle="modal" type="button">FAQ</button>
+            <button class="dropdown-item" data-target="#htpModal" data-toggle="modal" type="button">How to play?</button>
+            <!---->
+        </div>
+    </div>
+</nav>
+<div class="game">
+    <div style="text-align: center; padding: 0 15px;  margin-bottom: -25px; margin-top: 50px;">
+        <h3 style="font-weight: 600; font-family: Poppins, sans-serif">Fair game that pay Ether!</h3>
+        <h6 style="font-weight: 500; font-family: Poppins, sans-serif">Fully transparent and decentralized betting on smart contract with <a href="https://etherscan.io/address/0x35890d476Eb33A4966eA89d6c3dd389D75965344">open source code</a></h6>
+        <h6 style="font-weight: 500; font-family: Poppins, sans-serif">Anonymous, fast and reliable</h6>
+    </div>
+    <div class="game-container w-90">
+        <div class="d-flex flex-wrap p-20">
+            <div class="d-flex flex-column col-12 col-600-7">
+                <span class="game-small">Bet amount</span>
+                <div style="align-items: inherit" class="game-container-top-amount-input-wrapper">
+                    <img style="margin-top: 11px" class="navbar-coin" src="../assets/img/ether-logo.png">
+                    <input id="game-input" value="0" class="game-container-top-amount-input ng-untouched ng-pristine ng-valid">
+                    <button id="btn-half" class="game-container-top-amount-input-btn"><span class="game-small">1/2</span></button>
+                    <button id="btn-double" class="game-container-top-amount-input-btn with-side"><span class="game-small">2X</span></button>
+                    <button id="btn-max" class="game-container-top-amount-input-btn with-side"><span class="game-small">MAX</span></button>
+                </div>
+            </div>
+            <div class="d-flex flex-column mt-20 mt-600-0 col-600-5">
+                <span class="game-small">Payout on win</span>
+                <div class="game-container-top-profit-wrapper">
+                    <img class="navbar-coin" src="../assets/img/ether-logo.png">
+                    <div id="profit-amount" class="game-container-top-profit-amount">0</div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex pl-20 pr-20 pb-20">
+            <div class="col-12">
+                <div class="game-container-middle-wrapper">
+                    <div class="game-container-middle-roll">
+                        <span class="game-small d-none d-sm-block">Roll under to win</span><span
+                            class="game-small d-block d-sm-none">Roll under to win</span>
+                        <div class="game-container-middle-roll-value-wrapper"><span
+                                class="game-container-middle-roll-value"> 50↓ </span></div>
+                    </div>
+                    <hr class="game-container-middle-hr">
+                    <div class="game-container-middle-payout"><span
+                            class="game-small">Payout</span><span
+                            class="game-container-middle-payout-input"> 1.96x </span></div>
+                    <hr class="game-container-middle-hr">
+                    <div class="game-container-middle-chance"><span
+                            class="game-small">Range</span><span
+                            class="game-container-middle-chance-input"> 1 - 100 </span></div>
+                </div>
+            </div>
+        </div>
+        <!---->
+        <div class="game-container-bottom justify-content-around flex-wrap">
+            <div class="order-1 order-sm-1 order-md-1 col-xs-6 col-sm-3 col-md-3">
+                <div class="d-flex"><a style="cursor: pointer;" title="Sync ETH Balance"><img
+                src="../assets/img/ether-logo.png"></a><span class="position-relative"><span id="ether-balance">0.0000</span></span></div>
+            </div>
+            <div class="order-2 order-sm-3 order-md-3 col-xs-6 col-sm-3 col-md-3">
+                <!--<div class="d-flex"><img src="../assets/img/bet-token.png"><span class="position-relative"><span class="bet_balance">0.0000</span><span class="balance betBalance">0.0000</span></span><i class="fa fa-question-circle game-container-bottom-bet-qm" data-target="#betModal" data-toggle="modal"></i></div>-->
+            </div>
+            <div class="order-3 order-sm-2 order-md-2 col-xs-12 col-sm-4 col-md-4 mt-3 mt-sm-0 w-100">
+                <button id="btn-roll" data-target="#betModal" data-toggle="modal" class="roll_btn btn btn-secondary btn-lg">&emsp;Roll dice&emsp;</button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+</div>
+<past-bets _nghost-c0="">
+    <div class="d-flex flex-column p-20 align-items-center">
+        <div class="d-flex align-items-center m-auto flex-wrap justify-content-center">
+            <button id="btn-board-all" class="scores-active"><span>All bets</span></button>
+            <button id="btn-board-account" class="scores-inactive"><span>My bets</span></button>
+            <button id="btn-board-huge" class="scores-inactive"><span>Huge wins</span></button>
+        </div>
+        <div class="mt-20 text-center w-90">
+            <div class="scores-table-title d-flex">
+                <span class="flex-fill-1 d-none d-xl-block">Date</span>
+                <span class="flex-fill-1">Bettor</span>
+                <span class="flex-fill-1 d-none d-sm-block"> Bet </span>
+                <span class="flex-fill-1 d-none d-sm-block"> Roll </span>
+                <span class="flex-fill-1">Payout</span>
+            </div>
+            <div id="board-list" class="d-flex flex-column"></div>
+        </div>
+    </div>
+</past-bets>
+<footer style="text-align: center; opacity: 0.8; margin-bottom: 25px; margin-top: 10px; font-size: 0.9rem">
+    <a target="_blank" href="https://etherscan.io/address/0x35890d476Eb33A4966eA89d6c3dd389D75965344"><span class="fa fa-search"></span> Open on etherscan</a>
+</footer>
+<div aria-hidden="true" aria-labelledby="betModalLabel" class="modal fade" id="betModal" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="betModalLabel">...</h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
+                        aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body htp-body">
+                <div style="margin-top: -22px; margin-bottom: 13px">
+                    <h6 id="betText">...</h6>
+                </div>
+                <div style="margin: 0 auto; width: 200px; padding: 10px; background-color: #060c1e" id="qrcode"></div>
+                <!--<img style="width: 40%; padding: 10px; background-color: #060c1e" class="modal-bettoken" src="../assets/img/qr.png">-->
+                <div class="modal-body">
+                    <div class="referral-body">
+                        <input id="input-address-contract" value="0x35890d476Eb33A4966eA89d6c3dd389D75965344" class="referral-name" readonly="">
+                        <button id="btn-copy-address" class="btn btn-primary"> Copy</button>
+                    </div>
+                    <div style="margin-top: 15px; margin-bottom: -5px; text-align: center; font-weight: normal; font-size: 0.8rem">
+                        Gas limit: <b class="text-secondary">200000</b><br>
+                        Gas price: <b class="text-secondary" id="gas-price">...</b><br>
+                        Min deposit: <b class="text-secondary"><span class="text-secondary" id="min-value">...</span> ETH</b><br>
+                        Max deposit: <b class="text-secondary"><span class="text-secondary" id="max-value">...</span> ETH</b><br>
+                    </div>
+                    <div>
+                        <br>
+                        <h6>
+                            You will be able to find out the results of the bid on the "My bets" tab after your transaction has been confirmed. You can see the status of the transaction at any time through the <a target="_blank" style="text-decoration: none" class="text-secondary" href="https://etherscan.io/address/0x35890d476Eb33A4966eA89d6c3dd389D75965344">Etherscan</a>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div aria-hidden="true" aria-labelledby="communityModalLabel" class="modal fade" id="communityModal" role="dialog"
+     tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="communityModalLabel">Join the Ether Dice community!</h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
+                        aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body community-body">
+                <a href="https://t.me/EtherDice" target="_blank">
+                    <em style="background: linear-gradient(to bottom, #375de3 0%, #555df8 50%, #8a83f4 100%);" class="fa fa-telegram community-icon"></em>
+                </a>
+                <!--<a href="#" target="_blank">-->
+                    <!--<em style="background: linear-gradient(to bottom, #af0600 0%, #f81a1a 50%, #f45765 100%);" class="fa fa-youtube community-icon"></em>-->
+                <!--</a>-->
+                <a href="#" target="_blank">
+                    <em style="background: linear-gradient(to bottom, #f88728 0%, #f8a316 50%, #ffae44 100%);" class="fa fa-bitcoin community-icon"></em>
+                </a>
+                <a href="https://scmonit.com/address/0x35890d476Eb33A4966eA89d6c3dd389D75965344" target="_blank">
+                    <em style="background: linear-gradient(to bottom, #28850f 0%, #43ac2c 50%, #55a93e 100%);" class="fa fa-line-chart community-icon"></em>
+                </a>
+            </div>
+            <div style="margin-bottom:30px"></div>
+        </div>
+    </div>
+</div>
+<div aria-hidden="true" aria-labelledby="fairnessModalLabel" class="modal fade" id="fairnessModal" role="dialog"
+     tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div id="wallet-window" class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="fairnessModalLabel">The address of your Ethereum wallet</h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
+                        aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body fairness-body">
+                <div id="wallet-no-metamask" style="display: none; margin-top: 5px" class="fairness-input-wrapper">
+                    <input type="text" spellcheck="false" id="wallet-no-metamask-input" style="text-align: left; padding-left: 10px; padding-right: 10px;" placeholder="0x0000000000000000000000000000000000000000" class="fairness-input col-6 col-250-7 col-350-8 col-xs-8 col-sm-9 ng-untouched ng-pristine ng-valid">
+                    <button id="btn-wallet-set"
+                            aria-label="Close"
+                            class="btn btn-primary fairness-input-submit col-6 col-250-5 col-350-4 col-xs-2 col-sm-3"
+                            data-dismiss="modal"> OK
+                    </button>
+                </div>
+                <div id="wallet-with-metamask" style="display: none; margin-top: 5px" class="fairness-input-wrapper">
+                    <input type="text" spellcheck="false" id="wallet-with-metamask-input" readonly style="margin-right: 0; height: 38px; text-align: center; padding-left: 10px; padding-right: 10px;" class="fairness-input col-12 ng-untouched ng-pristine ng-valid">
+                </div>
+                <div>
+                    <br>
+                    <h6 id="wallet-text"></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div aria-hidden="true" aria-labelledby="referralModalLabel" class="modal fade" id="referralModal" role="dialog"-->
+     <!--tabindex="-1">-->
+    <!--<div class="modal-dialog modal-dialog-centered" role="document">-->
+        <!--<div class="modal-content">-->
+            <!--<div class="modal-header">-->
+                <!--<h5 class="modal-title" id="referralModalLabel">Earn with the referral program!</h5>-->
+                <!--<button aria-label="Close" class="close" data-dismiss="modal" type="button"><span-->
+                        <!--aria-hidden="true">×</span></button>-->
+            <!--</div>-->
+            <!--<div class="modal-body">-->
+                <!--<div style="margin-top: -15px; margin-bottom: 5px; font-weight: 200; opacity: 0.9">Your referral link:</div>-->
+                <!--<div class="referral-body"><input class="referral-name" id="referral-name" readonly="">-->
+                    <!--<button class="btn btn-primary" id="btn-copy-link"> Copy</button>-->
+                <!--</div>-->
+                <!--<div>-->
+                    <!--<br>-->
+                    <!--<h6>-->
+                        <!--Invite a friend and get 0.5% of his winning bids! Your friend will also receive 0.5% extra from his victories!-->
+                    <!--</h6>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<div aria-hidden="true" aria-labelledby="referralModalLabel" class="modal fade" id="referralModal" role="dialog"
+     tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div style="margin-bottom: -20px" class="modal-header">
+                <h5 class="modal-title">FAQ</h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
+                        aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <h6 style="text-align: left; margin-bottom: -2px;" class="modal-title">How does random number generation work?</h6>
+                <div style="font-size: 0.9rem; margin-top: 5px; margin-bottom: 5px; font-weight: 100; opacity: 0.9; text-align: left">
+                    Each block in the Ethereum blockchain has a verification hash. The Ethereum Virtual Machine allows you to retrieve these hashes using the blockhash() function. The function receives a numeric argument with the block number as input. As an entropy for the RNG, we use the hash of the future block, which is unknown at the time of the transaction. The attacker will not be able to create an exploit contract with the same RNG code and determine the result in advance, because the result of the bet will be known only for the next block from the moment of the transaction.
+                </div>
+                <div style="height: 8px"></div>
+                <h6 style="text-align: left; margin-bottom: -2px;" class="modal-title">How it works?</h6>
+                <div style="font-size: 0.9rem; margin-top: 5px; margin-bottom: -10px; font-weight: 100; opacity: 0.9; text-align: left">
+                    Step by step
+                    <div style="height: 4px"></div>
+                    <div style="margin-left: -20px">
+                        <ul style="font-family: none; font-size: 0.9rem; opacity: 0.95">
+                            <li style="text-align: left; font-weight: 100;">The player bets. The contract remembers the block number of its transaction</li>
+                            <li style="text-align: left; font-weight: 100;">The next time you call the contract, the result of the bet is determined on the basis of the check block hash of the bet, and if the bet turns out to be winning, the winner is sent the winning ethers</li>
+                            <li style="text-align: left; font-weight: 100;">Our bot automatically analyzes all transactions and quickly sends a transaction to the contract to complete the bet.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="height: 8px"></div>
+                <h6 style="text-align: left; margin-bottom: -2px;" class="modal-title">What if I want to make sure this is all true?</h6>
+                <div style="font-size: 0.9rem; margin-top: 5px; margin-bottom: 5px; font-weight: 100; opacity: 0.9; text-align: left">
+                    Feel free to study our Smart Contract - it's available on <a style="font-weight: bolder; text-decoration: none" class="text-secondary" href="https://etherscan.io/address/0x35890d476Eb33A4966eA89d6c3dd389D75965344">Etherscan</a>
+                </div>
+                <div style="height: 8px"></div>
+                <h6 style="text-align: left; margin-bottom: -2px;" class="modal-title">What are the fees?</h6>
+                <div style="font-size: 0.9rem; margin-top: 5px; margin-bottom: 5px; font-weight: 100; opacity: 0.9; text-align: left">
+                    Every bet is deducted 2% to help us pay the bills and keep the game running
+                </div>
+                <div style="height: 8px"></div>
+                <h6 style="text-align: left; margin-bottom: -2px;" class="modal-title">Have any questions?</h6>
+                <div style="font-size: 0.9rem; margin-top: 5px; margin-bottom: 5px; font-weight: 100; opacity: 0.9; text-align: left">
+                    Ask them in our <a style="font-weight: bold; text-decoration: none" class="text-secondary" href="https://t.me/Etherdice">telegram chat</a>. Administrators or users will help you
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div aria-hidden="true" aria-labelledby="htpModalLabel" class="modal fade" id="htpModal" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
+                        aria-hidden="true">×</span></button>
+            </div>
+            <div style="margin-top: -25px; text-align: left; padding-left: 30px; padding-right: 30px; font-weight: 300; font-size: 1rem">
+
+                <h5 class="modal-title" id="htpModalLabel" style="margin-bottom: 5px;">What is Ether Dice?</h5>
+                <span class="text-secondary">Ether Dice</span> is a fast and highly profitable game on Ethereum smart contract with <a target="_blank" style="text-decoration: none" class="text-secondary" href="https://etherscan.io/address/0x35890d476Eb33A4966eA89d6c3dd389D75965344#code">open source code</a>. Honesty and transparency of the game is ensured by working in the Ethereum blockchain decentralized network
+                <h5 style="margin-bottom: 5px; margin-top: 15px" class="modal-title" id="htpModalLabel2">How to play?</h5>
+                To start playing you need to make a Deposit to the<span style="opacity: 0.8; font-weight: 100">*</span> address of the smart contract.
+                <div style="margin-top: 10px" class="referral-body">
+                    <input id="input-address-contract-2" value="0x35890d476Eb33A4966eA89d6c3dd389D75965344" class="referral-name" readonly="">
+                    <button id="btn-copy-address-2" class="btn btn-primary"> Copy</button>
+                </div>
+                <div style="margin-top: 15px; margin-bottom: 15px; text-align: center; font-weight: normal; font-size: 0.8rem">
+                    Gas limit: <b class="text-secondary">200000</b><br>
+                    Gas price: <b class="text-secondary" id="gas-price-2">...</b><br>
+                    Min deposit: <b class="text-secondary"><span class="text-secondary" id="min-value-2">...</span> ETH</b><br>
+                    Max deposit: <b class="text-secondary"><span class="text-secondary" id="max-value-2">...</span> ETH</b><br>
+                </div>
+                <div style="margin-bottom: 10px; text-align: left; font-weight: 300; font-size: 1rem">
+                    If successful, your winnings will be sent to the wallet from which the transaction was sent. You can track the status of your bets on the "My bets" tab
+                </div>
+                <div style="font-size: 0.8em; font-weight: 100; opacity: 0.8; line-height: 15px; text-align: left">
+                    * You should send transactions to the smart contract address only from your personal wallets to which you have private keys. Do not send deposits from exchanges and payment systems!
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/js/jquery.cookie-1.4.1.min.js"></script>
+<script src="../assets/js/popper-min.js"></script>
+<script src="../assets/js/bootstrap-min.js"></script>
+<script src="../assets/js/widget-min.js"></script>
+<script src="../assets/js/mouse-min.js"></script>
+<script src="../assets/js/slider-min.js"></script>
+<script src="../assets/js/touch-punch-min.js"></script>
+<script src="../assets/js/runtime.js"></script>
+<script src="../assets/js/build-url.js"></script>
+<script src="../assets/js/qrcode.min.js"></script>
+<script src="../assets/js/dist/api.js"></script>
+<script src="../assets/js/dist/index.js"></script>
+<script>
+
+    var smartContractAddress = "0x35890d476Eb33A4966eA89d6c3dd389D75965344",
+        etherscan = "https://etherscan.io/address/",
+        testnet = "0";
+
+    var lang = {
+        symbol: "en",
+        address: {
+            header: "The address of your Ethereum wallet",
+            text: "Enter your wallet for viewing of balance and bets stats",
+            textWithMetamask: "Your address was determined automatically by the Metamask extension",
+            button: "OK"
+        },
+        bet: {
+            metamaskEnable: {
+                header: "Confirm the transaction via Metamask",
+                text: "Confirm the created transaction via Metamask or send it manually"
+            },
+            metamaskLock: {
+                header: "Metamask is unavailable",
+                text: "Log in to the Metamask extension or send the transaction manually"
+            },
+            withoutMetamask: {
+                header: "<a href=&quot;https://metamask.io&quot;>Metamask</a> not found",
+                text: 'Send the transaction manually or install the <a href="https://metamask.io">Metamask</a> extension'
+            }
+        }
+    };
+
+</script>
+</body>
+</html>
